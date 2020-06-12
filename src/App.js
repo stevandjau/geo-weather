@@ -7,13 +7,12 @@ import "./App.css";
 //import containers
 import Weather from "./containers/Weather";
 
-//define classname and bem func
-const className = "geo-weather";
-
-const App = () => (
-	<div className={className}>
-		<Weather />
-	</div>
-);
+function App() {
+	return (
+		<div className="geo-weather">
+			<Weather />
+		</div>
+	);
+}
 
 export default App;
