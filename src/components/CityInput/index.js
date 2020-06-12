@@ -2,7 +2,7 @@
 import React from "react";
 
 //import dependencies
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import Proptypes from "prop-types";
 
 //import css file

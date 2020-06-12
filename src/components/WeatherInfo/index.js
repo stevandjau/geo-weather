@@ -32,7 +32,6 @@ const WeatherInfo = ({ data }) => {
 	} = data;
 
 	const renderWeatherIcon = () => {
-		console.log(overall);
 		switch (overall) {
 			case "Clear":
 				return <Sunny />;
