@@ -1,0 +1,63 @@
+.city-input {
+	background: rgb(241, 201, 201);
+	max-width: 450px;
+	border-radius: 4px;
+	padding: 24px;
+
+	> * {
+		line-height: 16px;
+		font-size: 14px;
+		padding-bottom: 16px;
+		position: relative;
+
+		& > :first-child {
+			display: flex;
+			margin: 0 auto;
+		}
+	}
+
+	&__error,
+	&__label {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__error {
+		color: red;
+
+		&-row {
+			&.hide {
+				display: none;
+			}
+		}
+	}
+
+	&__label {
+		font-size: 20px;
+		line-height: 20px;
+		color: #cb3837;
+	}
+
+	&__submit {
+		background-color: #cb3837;
+		color: #fff;
+		border: none;
+		padding: 16px;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border: none;
+			cursor: pointer;
+		}
+
+		&:disabled {
+			opacity: 0.5;
+		}
+	}
+
+	&__input {
+		border: none;
+		line-height: 24px;
+	}
+}

@@ -17,15 +17,30 @@ import cn from "../../utils/bem-cn";
 const className = "city-input";
 const el = (element, mod) => cn(className, element, mod);
 
-const CityInput = ({ city, setCity, error, setError, submitForm }) => {
+const CityInput = ({ city, setCity, error, submitForm }) => {
 	return (
 		<Container className={className}>
-			<Row>Where do you live</Row>
 			<Row>
-				<input value={city} onChange={(e) => setCity(e.target.value)} />
+				<div className={el("label")}>Where do you live</div>
 			</Row>
 			<Row>
-				<button onClick={() => submitForm()}>Check Weather!</button>
+				<input
+					className={el("input")}
+					value={city}
+					onChange={(e) => setCity(e.target.value)}
+				/>
+			</Row>
+			<Row className={el("error-row", error ? "" : "hide")}>
+				<div className={el("error")}>{error}</div>
+			</Row>
+			<Row>
+				<button
+					className={el("submit")}
+					onClick={() => submitForm()}
+					disabled={city.length < 3}
+				>
+					Check Weather!
+				</button>
 			</Row>
 		</Container>
 	);

@@ -1,0 +1,18 @@
+.weather-info {
+	color: #878787;
+	padding: 24px;
+	max-width: 600px;
+
+	&__header {
+		color: #cb3837;
+	}
+
+	&__weather-icon {
+		line-height: 60px;
+		svg {
+			width: 60px;
+			height: 60px;
+			margin-right: 16px;
+		}
+	}
+}

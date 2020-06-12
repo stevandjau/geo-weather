@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 //import dependencies
 import { Container, Row, Col } from "reactstrap";
 
-//import css file
-
 //import components
 import CityInput from "../../components/CityInput";
-//import WeatherInfo from "../../components/WeatherInfo";
+import WeatherInfo from "../../components/WeatherInfo";
 
 //import services
 import * as weatherService from "../../services/weather.service";
 
 //import utils
+import cn from "../../utils/bem-cn";
 import * as helper from "../../utils/helper";
 
-const className = "city-input";
+import "./styles.scss";
+
+const className = "weather";
+const el = (element, mod) => cn(className, element, mod);
 
 const Weather = () => {
 	//declare state to track inputs, error and weather data
@@ -34,7 +36,8 @@ const Weather = () => {
 			.catch((error) => {
 				switch (error.status) {
 					case 400:
-						setError("Country entered is not found");
+					case 404:
+						setError("Location entered is not found");
 						break;
 					default:
 						setError("Unexpected error occured. Please try again");
@@ -42,24 +45,24 @@ const Weather = () => {
 				}
 			});
 	};
-	console.log(data);
 
 	return (
 		<Container className={className}>
 			{data ? (
 				<Row>
-					<Col xs={12} md={4}>
+					<Col xs={12} lg={4}>
 						<CityInput
 							city={city}
 							setCity={setCity}
 							error={error}
-							setError={setError}
 							submitForm={() => submitForm()}
 						/>
 					</Col>
-					<Col xs={12} md={8}>
-						{/* //<WeatherInfo data={data} /> */}
-					</Col>
+					{!error && (
+						<Col className={el("weather-info")} xs={8}>
+							<WeatherInfo data={data} />
+						</Col>
+					)}
 				</Row>
 			) : (
 				<Row>
