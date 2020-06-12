@@ -43,6 +43,7 @@ const Weather = () => {
 						setError("Unexpected error occured. Please try again");
 						break;
 				}
+				setData(null);
 			});
 	};
 
